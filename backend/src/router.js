@@ -1,6 +1,6 @@
 const express = require("express");
 
-const client = require("../database/client");
+// const client = require("../database/client");
 
 const router = express.Router();
 
@@ -12,45 +12,15 @@ const router = express.Router();
 
 // Route to get a list of items
 
-router.get("/offres", (req, res) => {
-  let query = "SELECT * FROM offre";
-  const values = [];
-  if (req.query.name) {
-    query += " where name = ?";
-    values.push(req.query.name);
-  }
-  if (req.query.limit) {
-    query += " LIMIT ?";
-    values.push(parseInt(req.query.limit, 10));
-  }
+const offreControllers = require("./controllers/offreControllers");
+const categoriesManager = require("./controllers/categorieControllers");
 
-  client
-    .query(query, values)
-    .then((result) => {
-      res.status(200).json(result[0]);
-    })
-    .catch((err) => {
-      console.error(err);
-      res.sendStatus(500);
-    });
-});
-
-router.get("/offres/:id", (req, res) => {
-  const id = +req.params.id;
-  client
-    .query("select * from offre where id = ?", [id])
-    .then(([offre]) => {
-      if (offre[0] != null) {
-        res.status(200).json(offre[0]);
-      } else {
-        res.sendStatus(404);
-      }
-    })
-    .catch((err) => {
-      console.error(err);
-      res.sendStatus(500);
-    });
-});
+router.get("/offres/:id", offreControllers.read);
+router.get("/offres/", offreControllers.browse);
+router.post("/offres/", offreControllers.add);
+router.get("/categories/", categoriesManager.browse);
+router.delete("/offres/:id", offreControllers.destroy);
+router.put("/offres/:id", offreControllers.edit);
 /* ************************************************************************* */
 
 module.exports = router;

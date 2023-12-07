@@ -1,5 +1,8 @@
+import { useLoaderData } from "react-router-dom";
+
 /* eslint-disable react/prop-types */
-function CardComplete({ item }) {
+function CardComplete() {
+  const item = useLoaderData();
   return (
     <figure className="container-card">
       <div className="left-part-container-card">
@@ -16,7 +19,7 @@ function CardComplete({ item }) {
           </div>
           <h2>{item.title}</h2>
           <p>{item.adresse}</p>
-          <figcaption name="description">{item.resumes} </figcaption>
+          <figcaption className="description">{item.resumes} </figcaption>
         </div>
       </div>
     </figure>

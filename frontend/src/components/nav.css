@@ -1,0 +1,14 @@
+.nav-ul-container {
+  display: inline-flex;
+  gap: 50px;
+  font-size: 1.5rem;
+}
+.header-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.nav-container {
+  padding: 50px 0;
+  font-family: "Poppins", sans-serif;
+}

@@ -1,6 +1,5 @@
 /* eslint-disable react/prop-types */
 function Card({ item }) {
-  console.info(item);
   return (
     <figure className="container-card">
       <div className="left-part-container-card">
