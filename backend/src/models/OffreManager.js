@@ -79,7 +79,6 @@ class OffreManager extends AbstractManager {
       `delete from ${this.table} where id = ?`,
       [id]
     );
-
     // Return the first row of the result, which represents the offre
     return rows[0];
   }

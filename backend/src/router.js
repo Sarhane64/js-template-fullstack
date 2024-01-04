@@ -21,6 +21,7 @@ router.post("/offres/", offreControllers.add);
 router.get("/categories/", categoriesManager.browse);
 router.delete("/offres/:id", offreControllers.destroy);
 router.put("/offres/:id", offreControllers.edit);
+router.put("/articles/:slug/categories/:id/authors/:name");
 /* ************************************************************************* */
 
 module.exports = router;

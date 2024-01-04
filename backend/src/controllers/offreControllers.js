@@ -40,7 +40,7 @@ const read = async (req, res, next) => {
 const edit = async (req, res, next) => {
   try {
     await tables.offre.update(req.params.id, req.body);
-    res.sendStatus(201);
+    res.sendStatus(203);
   } catch (err) {
     next(err);
   }

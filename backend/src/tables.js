@@ -6,11 +6,13 @@
 const ItemManager = require("./models/ItemManager");
 const OffreManager = require("./models/OffreManager");
 const categoriesManager = require("./models/CategoriesManager");
+const PicturesManager = require("./models/picturesManager");
 
 const managers = [
   ItemManager,
   OffreManager,
   categoriesManager,
+  PicturesManager,
   // Add other managers here
 ];
 
